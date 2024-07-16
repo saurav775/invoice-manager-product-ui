@@ -17,8 +17,18 @@ module.exports = () => {
       new ModuleFederationPlugin({
         name: "invoice_manager_product_ui",
         filename: "remoteEntry.js",
+        remotes: {
+          invoice_manager_dashboard_ui:
+            "invoice_manager_dashboard_ui@http://localhost:3000/remoteEntry.js",
+          invoice_manager_customer_ui:
+            "invoice_manager_customer_ui@http://localhost:3001/remoteEntry.js",
+          invoice_manager_product_ui:
+            "invoice_manager_product_ui@http://localhost:3002/remoteEntry.js",
+        },
         exposes: {
           "./ProductsPage": "./src/Bootstrap",
+          "./ProductForm": "./src/components/ProductForm",
+          "./actions/productActions": "./src/store/actions/products.actions",
         },
         shared: packageJson.dependencies,
       }),
