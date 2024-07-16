@@ -1,0 +1,12 @@
+.product-page-wrp {
+  .product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.4rem;
+    button {
+      width: fit-content;
+      align-self: flex-end;
+    }
+  }
+}
